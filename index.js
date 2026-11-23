@@ -15,7 +15,23 @@ app.use(express.json())
 app.use(eventRoute)
 
 app.get("/", (req, res) => {
-    res.send("home");
+    res.send(`<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Event Server</title>
+        </head>
+        <body>
+            <h1>Welcome to the Event Server</h1>
+            <ul>
+            <li>router.post('/addEvent',eventController.addEvent)</li>
+            <li>router.get('/getEvents',eventController.getEvents)</li>
+            <li>router.put('/updateEvent/:id',eventController.updateEvent)</li>
+            <li>router.delete('/deleteEvent/:id',eventController.deleteEvent)</li>
+            </ul>
+        </body>
+        </html>`);
 });
 
 
