@@ -32,7 +32,7 @@ exports.addEvent = async (req, res) => {
         // }
 
         console.error("Error creating event:", err);
-        res.status(500).json({ message: "Server Error" });
+        res.status(500).json({ message: "Server Error", err });
     }
 };
 
@@ -41,7 +41,7 @@ exports.getEvents = async (req, res) => {
         const events = await event.find({ ...req.query }).sort({ date: 1 });
         res.status(200).json({ message: "events", events });
     } catch (err) {
-        res.status(500).json({ message: "Server Error" });
+        res.status(500).json({ message: "Server Error", err });
     }
 };
 
